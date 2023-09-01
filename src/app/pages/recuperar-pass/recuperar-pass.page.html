@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>recuperarPass</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">recuperarPass</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid [fixed]="true">
+    <ion-row class="ion-justify-content-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Recuperar contraseña</ion-card-title>
+          <br>
+          <ion-card-subtitle>¿Has olvidado tu contraseña?</ion-card-subtitle>
+          <ion-card-subtitle> Ingresa tu e-mail y te enviaremos un correo electrónico para que recuperes el acceso a tu cuenta.</ion-card-subtitle>
+          <br>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-input [(ngModel)]="email" label="Email" label-placement="floating" fill="outline" placeholder="Ingrese su correo"></ion-input>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button (click)="recuperarPass()">
+        Recuperar contraseña
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

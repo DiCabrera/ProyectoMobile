@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,34 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'recuperar-pass',
+    loadChildren: () => import('./pages/recuperar-pass/recuperar-pass.module').then( m => m.RecuperarPassPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'qr-scan',
+    loadChildren: () => import('./pages/qr-scan/qr-scan.module').then( m => m.QrScanPageModule)
+  },
+  {
+    path: 'qr-info',
+    loadChildren: () => import('./pages/qr-info/qr-info.module').then( m => m.QrInfoPageModule)
+  },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'recuperar-confirmacion',
+    loadChildren: () => import('./pages/recuperar-confirmacion/recuperar-confirmacion.module').then( m => m.RecuperarConfirmacionPageModule)
   },
 ];
 

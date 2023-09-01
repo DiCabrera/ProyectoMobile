@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HelperService {
 
-  constructor(private alertService:AlertController) { }
+  constructor(private alertService:AlertController,private router:Router) { }
 
   async showAlert(msg:string, title:string){
     var alert = await this.alertService.create({
@@ -14,5 +16,15 @@ export class HelperService {
     
     await alert.present();
     return alert;
+  }
+
+  async confirmAlert(msg:string){
+    var alert = await this.alertService.create({
+      cssClass:"alertClass",message:msg,buttons:["Aceptar"]})
+
+      await alert.present();
+      this.router.navigate(["/login"])
+      return alert;
+      
   }
 }

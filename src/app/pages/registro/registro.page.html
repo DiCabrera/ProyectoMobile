@@ -10,4 +10,37 @@
       <ion-title size="large">registro</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid [fixed]="true">
+    <ion-row class="ion-justify-content-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Registro</ion-card-title>
+          <ion-card-subtitle>¡Bienvenido/a!</ion-card-subtitle>
+          <br>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-input [(ngModel)]="nombre" label="Nombre" label-placement="floating" fill="outline" placeholder="Ingrese nombre"></ion-input>
+          <br />
+          <ion-input [(ngModel)]="apellido" label="Apellido" label-placement="floating" fill="outline" placeholder="Ingrese apellido"></ion-input>
+          <br>
+          <ion-input [(ngModel)]="email" label="Correo electronico" label-placement="floating" fill="outline" placeholder="Ingrese correo electrónico"></ion-input>
+          <br>
+          <ion-input [(ngModel)]="pass" label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingrese contraseña" [type]="passType"></ion-input>
+          <br>
+          <ion-checkbox (ionChange)="verPass()" labelPlacement="end">Mostrar contraseña</ion-checkbox>
+          <hr>
+          <a [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button (click)="registrarse()">
+        Registrarse
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>

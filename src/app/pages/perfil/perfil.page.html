@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <div class="profilePic">
+        <div class="container">
+          <ion-img src="assets/icon/profilePic.png" class="image"></ion-img>
+        </div>
+      </div>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Perfil de Usuario</ion-card-title>
+          <br>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-label>Gustavo Fernández</ion-label>
+          <hr>
+          <ion-label>gu.fernandez@duocuc.cl</ion-label>
+          <hr>
+          <ion-label>Tipo de usuario: </ion-label><ion-label>Alumno</ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button>
+        Editar perfil
+      </ion-button>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
