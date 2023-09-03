@@ -1,0 +1,58 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "area1 area1 area2"
+    "area1 area1 area3"
+    ". . .";
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  
+  
+}
+
+.area1 {
+  grid-area: area1;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  color: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.733);
+  
+}
+
+.area2 {
+  grid-area: area2;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.733);
+}
+
+.area3 {
+  grid-area: area3;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.733);
+}
+
+.text {
+  position: absolute;
+  bottom: 8px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.719);
+  
+}
+
+.bloque {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+h1{
+  text-align: center;
+}

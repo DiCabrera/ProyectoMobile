@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HelperService } from './services/helper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private helper:HelperService, private router:Router) {}
+
+  async logOut(){
+    var confirmar = await this.helper.showConfirm("¿Cerrar sesión?","Confirmar","Cancelar")
+    if (confirmar == true) {
+      this.router.navigateByUrl("login")
+    }
+  }
+
+  goHome(){
+    this.router.navigateByUrl("inicio")
+  }
+
 }

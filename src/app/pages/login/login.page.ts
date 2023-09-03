@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
       return;
     }
     if (this.email == "user" && this.pass == "123"){
-      this.router.navigateByUrl("home");
+      this.router.navigateByUrl("inicio");
     }
     else{
       this.helperService.showAlert("Los datos ingresados son incorrectos","¡Ha ocurrido un error!")
