@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
       this.helperService.showAlert("Por favor ingrese una contraseña","¡Ha ocurrido un error!")
       return;
     }
-    if (this.email == "user" && this.pass == "123"){
+    if (this.email == "pgy4121-002d" && this.pass == "pgy4121-002d"){
       this.router.navigateByUrl("inicio");
     }
     else{
