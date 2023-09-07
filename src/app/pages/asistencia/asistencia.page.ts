@@ -7,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsistenciaPage implements OnInit {
 
-  clasesAsistidas:number = 0.75; //Ejemplo
+  clasesAsistidas:number = 17; //Ejemplo
+  clasesTotal:number = 23 //Ejemplo
+  clasesPorcentaje:number = 0
 
   constructor() { }
 
-  
-
   ngOnInit() {
+    this.clasesPorcentaje=((this.clasesAsistidas*100)/23)/100
   }
+
+  
 
   
   
