@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsistenciaPage implements OnInit {
 
+  clasesAsistidas:number = 0.75; //Ejemplo
+
   constructor() { }
+
+  
 
   ngOnInit() {
   }
 
+  
+  
 }

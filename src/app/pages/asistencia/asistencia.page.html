@@ -5,9 +5,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">asistencia</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid [fixed]="true">
+    <ion-row class="ion-justify-content-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Asistencia</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-row class="padding">
+            <ion-label>Programación de aplicaciones moviles</ion-label>
+            <ion-progress-bar [value]="clasesAsistidas"></ion-progress-bar>
+          </ion-row>
+          
+          <ion-row class="padding">
+            <ion-label>Calidad de software</ion-label>
+            <ion-progress-bar [value]=.83></ion-progress-bar>
+          </ion-row>
+
+          <ion-row class="padding">
+            <ion-label>Arquitectura de software</ion-label>
+            <ion-progress-bar [value]=.56></ion-progress-bar>
+          </ion-row>
+            
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
