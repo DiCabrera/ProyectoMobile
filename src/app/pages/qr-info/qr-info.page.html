@@ -10,4 +10,32 @@
       <ion-title size="large">qrInfo</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid [fixed]="true">
+    <ion-row class="ion-justify-content-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Información de QR</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-col>
+            <ion-label>Nombre alumno</ion-label>
+          </ion-col>
+          <ion-col>
+            {{dateTime}}
+          </ion-col>
+        </ion-card-content>
+
+        <ion-button (click)="qrConfirm()" color="warning">
+          Aceptar
+        </ion-button>
+        <ion-button (click)="qrCancel()" color="warning" fill="outline">
+          Cancelar
+        </ion-button>
+
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

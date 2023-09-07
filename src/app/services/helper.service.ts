@@ -50,4 +50,11 @@ export class HelperService {
     })
     return promise;
   }
+
+  async confirm(msg:string){
+    var alert = await this.alertService.create({
+      cssClass:"alertClass",message:msg,buttons:["Aceptar"]})
+      await alert.present();
+      
+  }
 }
