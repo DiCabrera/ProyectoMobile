@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -9,12 +11,18 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class LoginPage implements OnInit {
 
+  //pgy4121002d@duoc.cl
+  //123456
+
   email:string = "";
   pass:string = "";
   passType:string = "password";
   passShow:boolean = false;
 
-  constructor(private router:Router, private helperService:HelperService) { }
+  constructor(private router:Router,
+              private helperService:HelperService,
+              private auth:AngularFireAuth,
+  ) { }
 
   ngOnInit() {
   }
