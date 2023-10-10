@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "proyectomobile002d": {
+      "hosting": {
+        "app": [
+          "proyectomobile002d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "proyectomobile002d"
+  }
+}
