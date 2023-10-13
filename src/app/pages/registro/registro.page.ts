@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Usuario } from 'src/app/models/usuario';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-registro',
@@ -21,10 +23,15 @@ export class RegistroPage implements OnInit {
   constructor(
     private router:Router,
     private helperService:HelperService,
-    private auth:AngularFireAuth) { }
+    private auth:AngularFireAuth,
+    private storageService:StorageService) { }
 
   ngOnInit() {
-    
+    this.userView();
+  }
+
+  async userView(){
+    console.log("Storage de usuario: ",await this.storageService.obtenerUsuario());
   }
 
   async registrarse(){
@@ -51,15 +58,20 @@ export class RegistroPage implements OnInit {
         return;
       }
       else{
-        this.nombre="nombre";
-        this.apellido="apellido";
-        this.email="email";
-        this.pass="pass";
 
         const request = await this.auth.createUserWithEmailAndPassword(this.email,this.pass)
+        var user =[
+          {
+            email:this.email,
+            nombre:this.nombre
+          }
+        ]
+        this.storageService.guardarUsuario(user);
+      
         await this.router.navigateByUrl('login');
         await loader.dismiss();
         this.helperService.confirmAlert("Registro completado. Una verificación ha sido enviada a su correo electrónico")
+        
       }
     }
   
@@ -68,6 +80,12 @@ export class RegistroPage implements OnInit {
         await this.helperService.showAlert("El correo que se ha ingresado no es valido","Error de validación")
         await loader.dismiss();
       }
+
+      if(error.code == 'auth/email-already-in-use'){
+        await this.helperService.showAlert("El correo ingresado ya se encuentra registrado","Error de validación")
+        await loader.dismiss();
+      }
+      
     }
   }
 
