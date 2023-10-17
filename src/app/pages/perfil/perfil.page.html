@@ -26,10 +26,10 @@
           <br>
         </ion-card-header>
 
-        <ion-card-content>
-          <ion-label>Gustavo Fernández</ion-label>
+        <ion-card-content *ngFor="let i of usuario">
+          <ion-label>{{i.nombre}}</ion-label>
           <hr>
-          <ion-label>gu.fernandez@duocuc.cl</ion-label>
+          <ion-label>{{i.email}}</ion-label>
           <hr>
           <ion-label>Tipo de usuario: </ion-label><ion-label>Alumno</ion-label>
         </ion-card-content>

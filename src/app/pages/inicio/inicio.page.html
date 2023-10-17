@@ -11,7 +11,7 @@
     </ion-toolbar>
   </ion-header>
 
-<h1>Bienvenido/a</h1>
+<h1 *ngFor="let i of usuario">Bienvenido/a {{i.email}}</h1>
   <div class="container">
     <div class="area1" (click)="scanQR()">
       <ion-img src="assets/icon/scanQR.png"></ion-img>

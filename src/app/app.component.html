@@ -7,8 +7,8 @@
     <div class="imgHeader" slot="start">
       <ion-img (click)="goHome()"src="assets/icon/duocLogo.png"></ion-img>
     </div>
-    <ng-container>
-      <ion-button color="warning" class="logout" slot="end" (click)="logOut()" id="btnLogout">      <ion-icon name="log-out-outline"></ion-icon>
+    <ng-container > <!--pendiente: arreglar ngIf-->
+      <ion-button *ngIf="isLogin" color="warning" class="logout" slot="end" (click)="logOut()" id="btnLogout">      <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
     </ng-container>
   </ion-toolbar>

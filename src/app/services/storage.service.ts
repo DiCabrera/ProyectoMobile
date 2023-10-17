@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { Preferences} from '@capacitor/preferences'
 import { Usuario } from '../models/usuario';
 
-const storageUsuario = "usuarioData";
+const storageUsuario = 'usuarioData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
+
+  public usuarioCorreo:string = "";
 
   constructor() { }
 

@@ -21,4 +21,5 @@ export class AppComponent {
     this.router.navigateByUrl("inicio")
   }
 
+  isLogin(){}
 }

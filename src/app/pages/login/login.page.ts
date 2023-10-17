@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { StorageService } from 'src/app/services/storage.service';
 
 
 @Component({
@@ -18,29 +19,42 @@ export class LoginPage implements OnInit {
   pass:string = "";
   passType:string = "password";
   passShow:boolean = false;
+  isLogin:boolean = true;
 
   constructor(private router:Router,
               private helperService:HelperService,
-              private auth:AngularFireAuth,
+              private storage:StorageService,
+              private auth:AngularFireAuth
   ) { }
 
   ngOnInit() {
   }
 
-  login(){
+  async login(){
+    const loader = await this.helperService.showLoader("Cargando");
     if (this.email == ""){
+      await loader.dismiss();
       this.helperService.showAlert("Por favor ingrese un correo","¡Ha ocurrido un error!");
       return;
     }
     if (this.pass == ""){
+      await loader.dismiss();
       this.helperService.showAlert("Por favor ingrese una contraseña","¡Ha ocurrido un error!")
       return;
     }
-    if (this.email == "pgy4121-002d" && this.pass == "pgy4121-002d"){
-      this.router.navigateByUrl("inicio");
+
+    try {
+      await loader.dismiss();
+      const req = await this.auth.signInWithEmailAndPassword(this.email,this.pass);
+      console.log("TOKEN", await req.user?.getIdToken());
+      await this.router.navigateByUrl("inicio");
     }
-    else{
-      this.helperService.showAlert("Los datos ingresados son incorrectos","¡Ha ocurrido un error!")
+    catch (error:any) {
+      console.log("asd")
+      //if(error.code == 'auth/user-not-found'){
+        //await loader.dismiss();
+        //await this.helperService.showAlert("El correo y/o contraseña no existen en la base de datos","¡Los datos ingresados no son validos!")
+      //}
     }
   }
 

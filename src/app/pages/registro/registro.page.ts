@@ -24,7 +24,8 @@ export class RegistroPage implements OnInit {
     private router:Router,
     private helperService:HelperService,
     private auth:AngularFireAuth,
-    private storageService:StorageService) { }
+    private storageService:StorageService,
+    private helper:HelperService) { }
 
   ngOnInit() {
     this.userView();
@@ -76,6 +77,7 @@ export class RegistroPage implements OnInit {
     }
   
     catch (error:any) {
+      this.helper.showToast("Vuelva a intentarlo");
       if(error.code == 'auth/invalid-email'){
         await this.helperService.showAlert("El correo que se ha ingresado no es valido","Error de validación")
         await loader.dismiss();

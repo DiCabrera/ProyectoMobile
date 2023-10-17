@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,12 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  
+  usuario:any;
+  nombreUsuario:string = "";
 
-  constructor() { }
+  constructor(
+    private storage:StorageService
+  ) { }
 
   ngOnInit() {
-    
+    this.cargarUsuario();
   }
 
+
+  async cargarUsuario(){
+    this.usuario = (await this.storage.obtenerUsuario());
+    this.nombreUsuario = this.usuario[0].nombre;
+  }
 }
