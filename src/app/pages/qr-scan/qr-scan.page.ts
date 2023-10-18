@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 
 @Component({
   selector: 'app-qr-scan',
@@ -9,15 +10,13 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class QrScanPage implements OnInit {
 
+  resultQr: any = "";
+
   constructor(
     private router:Router,
     private helper:HelperService) { }
 
   ngOnInit() {
-  }
-
-  scanQR(){
-    this.router.navigateByUrl("qr-info");
   }
 
   async logOut(){
@@ -31,4 +30,16 @@ export class QrScanPage implements OnInit {
     this.router.navigateByUrl("inicio")
   }
 
+  async scan(){
+    this.resultQr  = (await BarcodeScanner.startScan());
+    console.log("obj QR",this.resultQr);
+    await this.modalResultQr();
+  }
+
+  async modalResultQr(){
+    var qr = [];
+    qr.push(this.resultQr);
+    const parametros={dataQr: this.resultQr}
+    //await this.helper.showModal(ResulQrPage,parametros,false);
+  }
 }
