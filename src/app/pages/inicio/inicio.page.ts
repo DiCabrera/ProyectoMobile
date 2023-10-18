@@ -4,6 +4,7 @@ import { Animation } from '@ionic/angular';
 import { AnimationController, IonCard, MenuController } from '@ionic/angular';
 import { StorageService } from 'src/app/services/storage.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { HelperService } from 'src/app/services/helper.service';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class InicioPage implements OnInit {
   constructor(private router:Router,
               private animationCtrl: AnimationController,
               private storage:StorageService,
-              private auth:AngularFireAuth
+              private auth:AngularFireAuth,
+              private helper:HelperService
   ) { }
 
   ngOnInit() {
@@ -51,4 +53,16 @@ export class InicioPage implements OnInit {
     this.usuario = (await this.storage.obtenerUsuario()).filter(e => e.email == user?.email);;
     this.nombreUsuario = this.usuario[0].nombre;
   }
+
+  async logOut(){
+    var confirmar = await this.helper.showConfirm("¿Cerrar sesión?","Confirmar","Cancelar")
+    if (confirmar == true) {
+      this.router.navigateByUrl("login")
+    }
+  }
+
+  goHome(){
+    this.router.navigateByUrl("inicio")
+  }
+
 }

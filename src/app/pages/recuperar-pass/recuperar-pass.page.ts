@@ -26,4 +26,9 @@ export class RecuperarPassPage implements OnInit {
     }
   }
 
+  goHome(){
+    this.router.navigateByUrl("login")
+  }
+
+
 }

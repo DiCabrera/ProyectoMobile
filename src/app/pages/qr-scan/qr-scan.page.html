@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>qrScan</ion-title>
+    <div class="imgHeader" slot="start">
+      <ion-img (click)="goHome()" src="assets/icon/duocLogo.png"></ion-img>
+    </div>
+    <ion-button color="warning" class="logout" slot="end" (click)="logOut()" id="btnLogout"> <ion-icon
+        name="log-out-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +18,7 @@
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <div class="border">
-        <ion-icon (click)="scanQR()" name="camera-outline"></ion-icon>
+        <ion-icon (click)="scanQR()" name="camera-outline" id="iconCamera"></ion-icon>
       </div>
     </ion-row>
   </ion-grid>

@@ -73,4 +73,7 @@ export class LoginPage implements OnInit {
     }
   }
 
+  goHome(){
+    this.router.navigateByUrl("login")
+  }
 }

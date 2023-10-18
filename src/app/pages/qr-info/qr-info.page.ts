@@ -10,7 +10,9 @@ import { HelperService } from 'src/app/services/helper.service';
 export class QrInfoPage implements OnInit {
   dateTime: string | undefined;
 
-  constructor(private router:Router, private helperService:HelperService) { }
+  constructor(
+    private router:Router,
+    private helper:HelperService) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -19,13 +21,25 @@ export class QrInfoPage implements OnInit {
   }
 
   qrCancel(){
-    this.helperService.showAlert("Has sido devuelto al menú para escanear","Escaneo cancelado")
+    this.helper.showAlert("Has sido devuelto al menú para escanear","Escaneo cancelado")
     this.router.navigateByUrl("qr-scan")
   }
 
   qrConfirm(){
-    this.helperService.confirm("Asistencia registrada con exito el día: " + this.dateTime)
+    this.helper.confirm("Asistencia registrada con exito el día: " + this.dateTime)
     this.router.navigateByUrl("inicio")
   }
+
+  async logOut(){
+    var confirmar = await this.helper.showConfirm("¿Cerrar sesión?","Confirmar","Cancelar")
+    if (confirmar == true) {
+      this.router.navigateByUrl("login")
+    }
+  }
+
+  goHome(){
+    this.router.navigateByUrl("inicio")
+  }
+
 
 }

@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>asistencia</ion-title>
+    <div class="imgHeader" slot="start">
+      <ion-img (click)="goHome()" src="assets/icon/duocLogo.png"></ion-img>
+    </div>
+    <ion-button color="warning" class="logout" slot="end" (click)="logOut()" id="btnLogout"> <ion-icon
+        name="log-out-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -8,9 +13,6 @@
   <ion-grid [fixed]="true">
     <ion-row class="ion-justify-content-center">
       <ion-card>
-        <ion-card-header>
-          <ion-card-title>Asistencia</ion-card-title>
-        </ion-card-header>
 
         <ion-card-content>
           <ion-row class="padding">

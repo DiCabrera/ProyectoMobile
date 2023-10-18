@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private helper:HelperService, private router:Router) {}
-
+/*
   async logOut(){
     var confirmar = await this.helper.showConfirm("¿Cerrar sesión?","Confirmar","Cancelar")
     if (confirmar == true) {
@@ -20,6 +20,6 @@ export class AppComponent {
   goHome(){
     this.router.navigateByUrl("inicio")
   }
+*/
 
-  isLogin(){}
 }

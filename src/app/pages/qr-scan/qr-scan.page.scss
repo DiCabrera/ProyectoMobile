@@ -4,7 +4,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
-ion-icon{
+#iconCamera{
     color: rgb(53, 53, 53);
     height: 50px;
     width: 50px;
@@ -26,4 +26,14 @@ ion-icon{
 ion-card{
     margin-bottom: 20px;
     box-shadow: 0px 0px 15px 1px rgb(0, 0, 0);
+}
+
+.imgHeader{
+    width: 50%;
+    padding-left: 30px;
+    padding-bottom: 5px;
+}
+
+.logout{
+    padding-right: 10px;
 }
