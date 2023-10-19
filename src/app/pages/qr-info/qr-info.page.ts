@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { HelperService } from 'src/app/services/helper.service';
+import { QrScanPage } from '../qr-scan/qr-scan.page';
+
+
 
 @Component({
   selector: 'app-qr-info',
@@ -12,7 +16,9 @@ export class QrInfoPage implements OnInit {
 
   constructor(
     private router:Router,
-    private helper:HelperService) { }
+    private helper:HelperService,
+    private modalController:ModalController,
+    private QrScanPage:QrScanPage) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -41,5 +47,8 @@ export class QrInfoPage implements OnInit {
     this.router.navigateByUrl("inicio")
   }
 
+  cerrar(){
+    this.modalController.dismiss();
+  }
 
 }

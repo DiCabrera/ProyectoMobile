@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-icon (click)= "abrir()" name="menu" slot="start" style="font-size: 30px" id="menuIcon"></ion-icon>
     <div class="imgHeader" slot="start">
       <ion-img (click)="goHome()" src="assets/icon/duocLogo.png"></ion-img>
     </div>
@@ -9,8 +10,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-icon (click)= "cerrar()" name="arrow-back" slot="end" style="font-size: 30px" id="menuIcon"></ion-icon>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding" scrollY="false">
+    <ion-list>
+      <ion-item (click)="goPerfil()">
+        <ion-icon style="padding-right: 15px;" name="person-circle-outline"></ion-icon>
+        <h3>Perfil</h3>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+</div>
 
+<ion-content [fullscreen]="true">
 <h1 *ngFor="let i of usuario">Bienvenido/a {{i.email}}</h1>
   <div class="container">
     <div class="area1" (click)="scanQR()">

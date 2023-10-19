@@ -27,7 +27,8 @@ export class InicioPage implements OnInit {
               private animationCtrl: AnimationController,
               private storage:StorageService,
               private auth:AngularFireAuth,
-              private helper:HelperService
+              private helper:HelperService,
+              private menuCtrl:MenuController
   ) { }
 
   ngOnInit() {
@@ -65,4 +66,15 @@ export class InicioPage implements OnInit {
     this.router.navigateByUrl("inicio")
   }
 
+  cerrar(){
+    this.menuCtrl.close();
+  }
+
+  abrir(){
+    this.menuCtrl.toggle();
+  }
+
+  goPerfil(){
+    this.router.navigateByUrl("perfil")
+  }
 }
