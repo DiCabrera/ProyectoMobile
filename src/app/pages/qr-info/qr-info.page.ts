@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { HelperService } from 'src/app/services/helper.service';
 import { QrScanPage } from '../qr-scan/qr-scan.page';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 
@@ -14,16 +15,22 @@ import { QrScanPage } from '../qr-scan/qr-scan.page';
 export class QrInfoPage implements OnInit {
   dateTime: string | undefined;
 
+  @Input() dataQr:any;
+  qrData:any;
+
   constructor(
     private router:Router,
     private helper:HelperService,
     private modalController:ModalController,
-    private QrScanPage:QrScanPage) { }
+    private auth:AngularFireAuth) { }
 
   ngOnInit() {
     setTimeout(() => {
       this.dateTime = new Date().toLocaleDateString();
     });
+
+    console.log("DATAQR del infopage! -->",this.dataQr.seccion) // undefined je
+    console.log("o aqui -->",this.dataQr.seccion) // salta undefined ja
   }
 
   qrCancel(){
@@ -33,13 +40,14 @@ export class QrInfoPage implements OnInit {
 
   qrConfirm(){
     this.helper.confirm("Asistencia registrada con exito el día: " + this.dateTime)
-    this.router.navigateByUrl("inicio")
+    this.modalController.dismiss();
   }
 
   async logOut(){
     var confirmar = await this.helper.showConfirm("¿Cerrar sesión?","Confirmar","Cancelar")
     if (confirmar == true) {
-      this.router.navigateByUrl("login")
+      await this.auth.signOut();
+      await this.router.navigateByUrl("login")
     }
   }
 

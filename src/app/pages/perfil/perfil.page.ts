@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -16,7 +17,8 @@ export class PerfilPage implements OnInit {
   constructor(
     private storage:StorageService,
     private router:Router,
-    private helper:HelperService
+    private helper:HelperService,
+    private auth:AngularFireAuth
   ) { }
 
   ngOnInit() {
@@ -32,7 +34,8 @@ export class PerfilPage implements OnInit {
   async logOut(){
     var confirmar = await this.helper.showConfirm("¿Cerrar sesión?","Confirmar","Cancelar")
     if (confirmar == true) {
-      this.router.navigateByUrl("login")
+      await this.auth.signOut();
+      await this.router.navigateByUrl("login")
     }
   }
 

@@ -4,6 +4,7 @@ import { HelperService } from 'src/app/services/helper.service';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { QrInfoPage } from '../qr-info/qr-info.page';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-qr-scan',
@@ -19,7 +20,8 @@ export class QrScanPage implements OnInit {
 
   constructor(
     private router: Router,
-    private helper: HelperService) { }
+    private helper: HelperService,
+    private auth:AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -27,7 +29,8 @@ export class QrScanPage implements OnInit {
   async logOut() {
     var confirmar = await this.helper.showConfirm("¿Cerrar sesión?", "Confirmar", "Cancelar")
     if (confirmar == true) {
-      this.router.navigateByUrl("login")
+      await this.auth.signOut();
+      await this.router.navigateByUrl("login")
     }
   }
 
