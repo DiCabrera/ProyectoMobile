@@ -24,3 +24,36 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: 'ComfortaaRegular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/ComfortaaRegular.ttf');
+}
+
+@font-face {
+    font-family: 'ComfortaaBold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/ComfortaaBold.ttf');
+}
+
+@font-face {
+    font-family: 'ComfortaaLight';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/ComfortaaLight.ttf');
+  }
+
+ion-content {
+    --background: rgb(246, 244, 230);
+}
+
+*{
+    font-family: "ComfortaaRegular";
+}
+
+ion-toolbar {
+    --background: rgb(82, 87, 93);
+}
