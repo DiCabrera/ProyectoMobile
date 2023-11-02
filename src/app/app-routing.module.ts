@@ -28,32 +28,32 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    canActivate:[AngularFireAuthGuard],
-    data:{authGuardPipe : redirectToLogin},
+    //canActivate:[AngularFireAuthGuard],
+    //data:{authGuardPipe : redirectToLogin},
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
     path: 'qr-scan',
-    canActivate:[AngularFireAuthGuard],
-    data:{authGuardPipe : redirectToLogin},
+    //canActivate:[AngularFireAuthGuard],
+    //data:{authGuardPipe : redirectToLogin},
     loadChildren: () => import('./pages/qr-scan/qr-scan.module').then( m => m.QrScanPageModule)
   },
   {
     path: 'qr-info',
-    canActivate:[AngularFireAuthGuard],
-    data:{authGuardPipe : redirectToLogin},
+    //canActivate:[AngularFireAuthGuard],
+    //data:{authGuardPipe : redirectToLogin},
     loadChildren: () => import('./pages/qr-info/qr-info.module').then( m => m.QrInfoPageModule)
   },
   {
     path: 'asistencia',
-    canActivate:[AngularFireAuthGuard],
-    data:{authGuardPipe : redirectToLogin},
+    //canActivate:[AngularFireAuthGuard],
+    //data:{authGuardPipe : redirectToLogin},
     loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
   },
   {
     path: 'inicio',
-    canActivate:[AngularFireAuthGuard],
-    data:{authGuardPipe : redirectToLogin},
+    //canActivate:[AngularFireAuthGuard],
+    //data:{authGuardPipe : redirectToLogin},
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {

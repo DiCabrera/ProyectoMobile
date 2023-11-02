@@ -46,6 +46,14 @@
     src: url('./assets/fonts/ComfortaaLight.ttf');
   }
 
+#colores{
+    color:
+    #f6f4e6
+    #fddb3a
+    rgb(82, 87, 93)
+    rgb(36, 38, 41)
+}
+
 ion-content {
     --background: rgb(246, 244, 230);
 }
@@ -55,5 +63,13 @@ ion-content {
 }
 
 ion-toolbar {
-    --background: rgb(82, 87, 93);
+    --background: rgb(36, 38, 41);
 }
+
+.patron{
+    background: url('/assets/icon/pattern.png');
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+
