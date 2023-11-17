@@ -55,8 +55,9 @@
 }
 
 ion-content {
-    --background: rgb(246, 244, 230);
+    --background: linear-gradient(to right top, #fbffcf, #fbffc2, #faffb5, #faffa8, #faff9a, #fafb94, #fbf68f, #fbf289, #fae88b, #f7df8d, #f3d690, #eece93);
 }
+
 
 *{
     font-family: "ComfortaaRegular";
@@ -64,12 +65,6 @@ ion-content {
 
 ion-toolbar {
     --background: rgb(36, 38, 41);
-}
-
-.patron{
-    background: url('/assets/icon/pattern.png');
-    background-size: cover;
-    background-repeat: repeat;
 }
 
 
