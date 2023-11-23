@@ -68,7 +68,7 @@ export class RegistroPage implements OnInit {
             apellido: this.apellido
           }
         ]
-        this.storageService.guardarUsuario(user);
+        await this.storageService.guardarUsuario(user);
       
         await this.router.navigateByUrl('login');
         await loader.dismiss();
