@@ -6,6 +6,7 @@ import { StorageService } from 'src/app/services/storage.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { HelperService } from 'src/app/services/helper.service';
 import { Geolocation } from '@capacitor/geolocation';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -27,17 +28,23 @@ export class InicioPage implements OnInit {
   @ViewChild(IonCard, { read: ElementRef })
   card!: ElementRef<HTMLIonCardElement>;
 
+  parametronumeroUno:number | undefined;
+
   constructor(private router:Router,
               private animationCtrl: AnimationController,
               private storage:StorageService,
               private auth:AngularFireAuth,
               private helper:HelperService,
-              private menuCtrl:MenuController
+              private menuCtrl:MenuController,
+              private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.parametronumeroUno = this.activatedRoute.snapshot.params['num'];
+    console.log("parametro: ", this.parametronumeroUno);
     this.cargarUsuario();
     this.ubicacion();
+    this.correoUserFirebase();
   }
 
   scanQR(){
@@ -56,7 +63,7 @@ export class InicioPage implements OnInit {
 
     var user = await this.auth.currentUser;
     
-    this.usuario = (await this.storage.obtenerUsuario()).filter(e => e.email == user?.email);;
+    this.usuario = (await this.storage.obtenerUsuario()).filter(e => e.email == user?.email);
     this.nombreUsuario = this.usuario[0].nombre;
   }
 
@@ -105,5 +112,12 @@ export class InicioPage implements OnInit {
   goTav(){
     this.animation.play();
     this.helper.showToast("Los cursos TAV no se encuentran disponibles aún.",1000)
+  }
+
+  async correoUserFirebase(){
+    var user = await this.auth.currentUser;
+    console.log("CURRENT USER", user?.email);
+    console.log("CORREO USUARIO STORAGE",this.storage.usuarioCorreo);
+    
   }
 }

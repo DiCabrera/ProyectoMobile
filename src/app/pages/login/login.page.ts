@@ -45,6 +45,7 @@ export class LoginPage implements OnInit {
 
     try {
       await loader.dismiss();
+      this.storage.usuarioCorreo = this.email;
       const req = await this.auth.signInWithEmailAndPassword(this.email,this.pass);
       console.log("TOKEN", await req.user?.getIdToken());
       await this.router.navigateByUrl("inicio");

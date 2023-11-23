@@ -63,8 +63,9 @@ export class RegistroPage implements OnInit {
         const request = await this.auth.createUserWithEmailAndPassword(this.email,this.pass)
         var user =[
           {
-            email:this.email,
-            nombre:this.nombre
+            email: this.email,
+            nombre: this.nombre,
+            apellido: this.apellido
           }
         ]
         this.storageService.guardarUsuario(user);
