@@ -17,15 +17,14 @@
         </ion-card-header>
 
         <ion-card-content>
-          <ion-col *ngFor="let i of dataQr">
-            <ion-row>Asignatura: </ion-row>{{dataQr?.asignatura}}
-            <ion-row>Sección: </ion-row>{{dataQr?.seccion}}
-            <ion-row>Docente: </ion-row>{{dataQr?.docente}}
-            <ion-row>Lección: </ion-row>{{dataQr?.leccion}}
-            <ion-row>Hora: </ion-row>{{dataQr?.hora}}
-          </ion-col>
           <ion-col>
-            <ion-label></ion-label>
+            <ion-row>Asignatura: {{dataAsistencia.asignatura}}</ion-row>
+            <ion-row>Docente: {{dataAsistencia.docente}}</ion-row>
+            <ion-row>Fecha: {{dataAsistencia.fecha}}</ion-row>
+            <ion-row>Hora: {{dataAsistencia.hora}}</ion-row>
+            <ion-row>Lección: {{dataAsistencia.leccion}}</ion-row>
+            <ion-row>Sala: {{dataAsistencia.sala}}</ion-row>
+            <ion-row>Sección: {{dataAsistencia.seccion}}</ion-row>
           </ion-col>
         </ion-card-content>
 

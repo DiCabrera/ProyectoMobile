@@ -7,9 +7,8 @@ describe('HelperService', () => {
   let service: HelperService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule
-    ({
-      providers: [ModalController, AlertController, LoadingController, ToastController, HelperService, AngularDelegate]
+    TestBed.configureTestingModule({
+      providers:[HelperService,ModalController,AngularDelegate]
     });
     service = TestBed.inject(HelperService);
   });

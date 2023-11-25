@@ -27,6 +27,10 @@
         <ion-icon style="padding-right: 15px;" name="school"></ion-icon>
         <h3>TAV</h3>
       </ion-item>
+      <ion-item (click)="ubicacion()">
+        <ion-icon style="padding-right: 15px;" name="locate"></ion-icon>
+        <h3>Ubicación actual</h3>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -43,7 +47,7 @@
 </div>
 
 <ion-content [fullscreen]="true">
-<h1 *ngFor="let i of usuario">Bienvenido/a {{i.nombre}}</h1>
+<h1 >Bienvenido/a {{nombreUsuario}}</h1>
   <div class="container">
     <div class="area1" (click)="scanQR()">
       <ion-img src="assets/icon/scanQR.png"></ion-img>

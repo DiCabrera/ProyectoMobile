@@ -16,7 +16,9 @@ export class QrInfoPage implements OnInit {
   dateTime: string | undefined;
 
   @Input() dataQr:any;
-  qrData:any;
+  dataAsistencia:any;
+
+  asignatura: string = '';
 
   constructor(
     private router:Router,
@@ -29,8 +31,10 @@ export class QrInfoPage implements OnInit {
       this.dateTime = new Date().toLocaleDateString();
     });
 
-    console.log("DATAQR del infopage! -->",this.dataQr.seccion) // undefined je
-    console.log("o aqui -->",this.dataQr.seccion) // salta undefined ja
+    this.dataAsistencia = JSON.parse(this.dataQr);
+
+    console.log("DATAQR del infopage! -->",this.dataQr)
+    console.log("asignartura -->",this.asignatura)
   }
 
   qrCancel(){

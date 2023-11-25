@@ -26,12 +26,12 @@
           <br>
         </ion-card-header>
 
-        <ion-card-content *ngFor="let i of usuario">
-          <ion-label>Nombre: {{i.nombre}}</ion-label>
+        <ion-card-content>
+          <ion-label>Nombre: {{nombreUsuario}} {{apellidoUsuario}}</ion-label>
           <hr>
-          <ion-label>Email: {{i.email}}</ion-label>
+          <ion-label>Email: {{emailUsuario}}</ion-label>
           <hr>
-          <ion-label>Tipo de usuario: </ion-label><ion-label>Alumno</ion-label>
+          <ion-label>Tipo de usuario: Alumno</ion-label>
         </ion-card-content>
       </ion-card>
     </ion-row>

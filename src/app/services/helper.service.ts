@@ -13,7 +13,7 @@ export class HelperService {
     private toastController:ToastController,
     private modalController:ModalController) { }
 
-  async showAlert(msg:string, title:string){
+  async showAlert(msg:any, title:string){
     var alert = await this.alertService.create({
       cssClass:"alertClass", message:msg,header:title, buttons:['Aceptar']});
     

@@ -28,7 +28,10 @@ export class InicioPage implements OnInit {
   @ViewChild(IonCard, { read: ElementRef })
   card!: ElementRef<HTMLIonCardElement>;
 
-  parametronumeroUno:number | undefined;
+  parametro:number | undefined;
+
+  latitud:any='';
+  longitud:any='';
 
   constructor(private router:Router,
               private animationCtrl: AnimationController,
@@ -40,10 +43,10 @@ export class InicioPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.parametronumeroUno = this.activatedRoute.snapshot.params['num'];
-    console.log("parametro: ", this.parametronumeroUno);
+    this.parametro = this.activatedRoute.snapshot.params['id'];
+    console.log("parametro: ", this.parametro, "LATITUD: ",this.latitud);
     this.cargarUsuario();
-    this.ubicacion();
+    
     this.correoUserFirebase();
   }
 
@@ -91,9 +94,15 @@ export class InicioPage implements OnInit {
     this.router.navigateByUrl("perfil")
   }
 
-  ubicacion(){
-    const coordenada = Geolocation.getCurrentPosition();
-    console.log("ubicacion: ", coordenada)
+  async ubicacion(){
+    const coordenada = await Geolocation.getCurrentPosition();
+    const latitud = coordenada.coords.latitude;
+    const longitud = coordenada.coords.longitude;
+
+    console.log("COORDENADAS: ", latitud, longitud);
+    
+    this.helper.showAlert("Latitud: " + latitud + "\nLongitud: " + longitud,"Ubicación actual")
+    
   }
 
   ngAfterViewInit() {

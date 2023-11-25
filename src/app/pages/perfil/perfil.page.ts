@@ -13,6 +13,8 @@ export class PerfilPage implements OnInit {
 
   usuario:any;
   nombreUsuario:string = "";
+  emailUsuario:string = "";
+  apellidoUsuario:string = "";
 
   constructor(
     private storage:StorageService,
@@ -29,6 +31,8 @@ export class PerfilPage implements OnInit {
   async cargarUsuario(){
     this.usuario = (await this.storage.obtenerUsuario());
     this.nombreUsuario = this.usuario[0].nombre;
+    this.emailUsuario = this.usuario[0].email;
+    this.apellidoUsuario = this.usuario[0].apellido;
   }
 
   async logOut(){

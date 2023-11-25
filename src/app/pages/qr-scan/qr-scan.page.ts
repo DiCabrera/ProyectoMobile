@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { BarcodeScanner } from 'capacitor-barcode-scanner';
 import { QrInfoPage } from '../qr-info/qr-info.page';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -17,6 +17,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class QrScanPage implements OnInit {
 
   resultQr: any = "";
+  asignatura: string = '';
 
   constructor(
     private router: Router,
@@ -39,25 +40,18 @@ export class QrScanPage implements OnInit {
   }
 
   async scan() {
-    this.resultQr = (await BarcodeScanner.startScan());
-    console.log("obj QR", this.resultQr);
+    this.resultQr = (await BarcodeScanner.scan()).code;
+    console.log("obj QR", JSON.parse(this.resultQr));
+    
     await this.modalResultQr();
   }
 
   async modalResultQr() {
-    const parametros = { dataQr: this.resultQr }
-    await this.helper.showModal(QrInfoPage, parametros, false);
-    console.log(this.resultQr.content.seccion)
+    
+    var qr = [];
+    qr.push(this.resultQr);
+    const parametros={dataQr: this.resultQr}
+    await this.helper.showModal(QrInfoPage,parametros,false);
 
-    const qrData = JSON.parse(this.resultQr.content);
-
-    const asignatura = qrData.asignatura;
-    const seccion = qrData.seccion;
-    const docente = qrData.docente;
-    const hora = qrData.hora;
-    const leccion = qrData.leccion
-
-    console.log(` Asignatura: ${asignatura} || Seccion: ${seccion} || Docente: ${docente} || Hora: ${hora} || Lección: ${leccion}`);
-    console.log('QR Data:', this.resultQr);
   }
 }

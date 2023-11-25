@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
   isLogin:boolean = true;
 
   constructor(private router:Router,
-              private helperService:HelperService,
+              public helperService:HelperService,
               private storage:StorageService,
               private auth:AngularFireAuth
   ) { }

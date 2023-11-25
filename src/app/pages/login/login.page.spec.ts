@@ -11,7 +11,14 @@ describe('LoginPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  // PRUEBA UNITARIA
+
+  it('Se debe crear una alerta si correo está vacío', async () => {
+    component.email = '';
+    component.pass = '123456';
+    await component.login();
+    
+    expect(component.helperService.showAlert).toHaveBeenCalled();
+    
   });
 });
